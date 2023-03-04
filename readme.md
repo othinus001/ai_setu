@@ -2,7 +2,8 @@
 
 
 ### **介绍**
-该项目fork自sans的插件，对webui进行进一步扩展。  
+**该项目fork自sans的插件，对webui进行进一步扩展   
+
 利用[Stable Diffusion web UI](https://github.com/AUTOMATIC1111/stable-diffusion-webui) 的api 来实现**HoshinoBot**快速进行AI绘图。
 
 额外提供快捷调用huggingface的某几个特定仓库和开源模型的方法
