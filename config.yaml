@@ -1,0 +1,91 @@
+#配置文件,修改配置后重启Bot生效!!!
+#必填项!
+##1.api的IP,不了解就保持默认
+api_ip:
+  - '91.217.139.190:5010' #备用服务器
+  - '91.216.169.75:5010' #主服务器
+  - '185.80.202.180:5010' #备用服务器2
+
+sd_api_ip: "http://49.234.234.175:7860" #sdui的api的ip,比如http://82.157.58.118:7860,服务器GPU为V100,请勿传播,仅供HoshinoBot使用,要达到更好效果请自建
+
+##2.路路友情api的token,访问上述ip/token 获取
+token:
+  - ''
+
+##3. 默认绘图参数
+tags_moren: "miku" #默认的tags
+ntags_moren: "lowres, badanatomy, bad hands, text, error, missing fingers, extradigit, fewerdigits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark,username,blurry" #默认的负面tags
+ntags_safe: "{nsfw}, {nude}, {naked}, lvavaginal, nudity, topless, vulva" #默认的防止漏点的ntags,清空则无效
+r18_moren: 0 #默认是否开启r18,1为开启
+pic_max: 1000000 #默认生成的图片最大像素限制,100W像素用T4显卡大概需要32秒,请根据自己的显卡性能调整
+
+###3.1. 文字生成图片细节参数
+txt2img_steps_moren: 40
+txt2img_steps_max: 50 #最高步数
+txt2img_sampler_moren: "DPM++ 2S a Karras" #DPM++ 2S a Karras是高阶采样,所以步数较少,即可得到效果
+txt2img_scale_moren: 11
+txt2img_shape_moren: "Portrait"
+
+###3.2. 图片生成图片细节参数
+img2img_steps_moren: 30
+img2img_steps_max: 60 #最高步数
+img2img_sampler_moren: "Euler a" #Euler a是低阶采样,所以步数较多
+img2img_scale_moren: 11
+img2img_strength_moren: "0.60" #与原图关联性,越低越关联
+resize_mode: 0 #0:Just resize 1:Crop and resize 2:Resize and fill 理论差别较小
+##4. 绘图超时时间，单位秒
+draw_timeout: 180
+##5. 元素法典相似度,高于该值的魔咒会被覆盖
+max_ratio: 0.8
+max_magic_num: 8 #每次能融合的魔法书个数
+
+
+#可选项!
+
+#欢迎下载自炼模型链接：https://pan.baidu.com/s/1hY24_ZH9UfV0mT5-qHcppw?pwd=2333
+
+#整理tags功能
+arrange_tags: True
+
+#数据库相关功能
+##1. 是否开启数据录入
+add_db: True
+##2. 用于查看图片时，每页最多有多少张图
+per_page_num: 32
+
+#翻译功能
+##1. 是否开启翻译
+trans: True
+##2. 翻译方式(0为有道,1为百度),api地址,应用id,应用密钥
+way2trans: 1
+youdao_url: "https://openapi.youdao.com/api"
+youdao_app_id: ""
+youdao_app_key: ""
+
+baidu_url: "http://api.fanyi.baidu.com/api/trans/vip/translate"
+baidu_app_id: "20191107000354001"
+baidu_app_key: "DLYTf9ax_ehYMWs8tLeS"
+
+#过滤功能
+##1. 是否开启违禁词过滤
+limit_word: True
+##2. 违禁词表,字典树的方式,如 naked 会过滤掉 "nakedasdasda" 里的 "naked" 剩下 "dasdasda"
+wordlist: ['&r18=1', 'nake', 'vagina', 'penis', 'nsfw', 'genital', 'nude', 'nipple', 'vulv', 'no pant', 'clothes remove', 'rectum', '%']
+
+
+
+#鉴赏图片功能
+img2tag: True #是否开启
+img2tags_url: "https://hf.space/embed/NoCrypt/DeepDanbooru_string/api/predict/" #有排队功能的DeepDanbooru仓库
+img2tags_url_timeout: 30 #请求超时时间
+
+#图片动漫化功能
+img2anime: False #是否开启
+img2anime_url: "http://81.69.176.219:8081/run/predict/" #White-box-Cartoonization仓库
+img2anime_url_timeout: 120
+
+#超分图片功能
+picsuper: False #是否开启
+pic_super_url: "http://81.69.176.219:8080/run/predict/" #Real-CUGAN仓库,更好效果推荐自建,默认仓库已经设置2048*2048的大小限制
+max_size: 11664000 #超分图片的最大尺寸为1080*1080*10,过大有风险
+pic_super_timeout: 120
