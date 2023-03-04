@@ -1,8 +1,8 @@
 # AI_SETU
 
-
 ### **介绍**
-**该项目fork自sans的插件，对webui进行进一步扩展   
+**该项目fork自sans的插件，对webui进行进一步扩展**  
+
 
 利用[Stable Diffusion web UI](https://github.com/AUTOMATIC1111/stable-diffusion-webui) 的api 来实现**HoshinoBot**快速进行AI绘图。
 
